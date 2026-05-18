@@ -1,0 +1,19 @@
+{
+    "name": "download-stages-mesa",
+    "job_dir": "./results/download",
+    "verbose": 2,
+    "datasets": [
+        {
+            "name": "mesa",
+            "params": {
+                "path": "./datasets/mesa"
+            }
+        },
+        {
+            "name": "stages",
+            "params": {
+                "path": "./datasets/stages"
+            }
+        }
+    ]
+}

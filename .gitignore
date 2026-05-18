@@ -1,0 +1,62 @@
+# ─── Data (license-restricted; obtain from NSRR / PhysioNet directly) ─────────
+datasets/
+data/
+*.parquet
+*.edf
+*.csv.gz
+
+# ─── Local environments ───────────────────────────────────────────────────────
+venv/
+.venv/
+env/
+miniconda3/
+conda_env/
+*.egg-info/
+
+# ─── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+/build/
+/dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ─── Run artifacts ────────────────────────────────────────────────────────────
+results/
+logs/
+*.log
+*.o[0-9]*
+*.e[0-9]*
+
+# ─── Saved models / checkpoints ───────────────────────────────────────────────
+models/
+*.joblib
+*.pkl
+*.h5
+*.keras
+*.tflite
+*.onnx
+*.pt
+*.pth
+
+# ─── Notebook checkpoints ─────────────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ─── OS / editor ──────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ─── Secrets ──────────────────────────────────────────────────────────────────
+.nsrr_token
+.env
+.env.local
+*.pem
+*.key

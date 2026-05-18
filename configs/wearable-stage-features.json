@@ -1,0 +1,32 @@
+{
+    "name": "wearable-stage-features",
+    "job_dir": "./results/wearable-stage-features",
+    "verbose": 2,
+    "datasets": [
+        {
+            "name": "mesa",
+            "params": {
+                "path": "./datasets/mesa"
+            }
+        },
+        {
+            "name": "stages",
+            "params": {
+                "path": "./datasets/stages"
+            }
+        }
+    ],
+    "feature": {
+        "name": "FS-W-PA-14",
+        "sampling_rate": 64,
+        "frame_size": 3840,
+        "loader": "hdf5",
+        "feat_key": "features",
+        "label_key": "stage_labels",
+        "mask_key": "mask",
+        "feat_cols": null,
+        "save_path": "./datasets/store/fs-w-pa-14-60",
+        "params": {}
+    },
+    "num_workers": 8
+}

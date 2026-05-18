@@ -1,0 +1,124 @@
+{
+    "name": "wearable-ss-2-tcn",
+    "project": "sleepkit",
+    "job_dir": "./results/wearable-ss-2-tcn",
+    "verbose": 2,
+    "datasets": [
+        {
+            "name": "mesa",
+            "params": {
+                "path": "./datasets/mesa"
+            }
+        },
+        {
+            "name": "stages",
+            "params": {
+                "path": "./datasets/stages"
+            }
+        }
+    ],
+    "feature": {
+        "name": "FS-W-PA-14",
+        "sampling_rate": 64,
+        "frame_size": 3840,
+        "loader": "hdf5",
+        "feat_key": "features",
+        "label_key": "stage_labels",
+        "mask_key": "mask",
+        "feat_cols": null,
+        "save_path": "./datasets/store/fs-w-pa-14-60",
+        "params": {}
+    },
+    "sampling_rate": 0.03333,
+    "frame_size": 240,
+    "num_classes": 2,
+    "class_map": {
+        "0": 0,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+    },
+    "class_names": ["WAKE", "SLEEP"],
+    "samples_per_subject": 40,
+    "val_samples_per_subject": 40,
+    "test_samples_per_subject": 40,
+    "val_size": 12000,
+    "test_size": 15000,
+    "val_subjects": 0.20,
+    "batch_size": 128,
+    "buffer_size": 50000,
+    "epochs": 100,
+    "steps_per_epoch": 50,
+    "val_steps_per_epoch": 25,
+    "val_metric": "loss",
+    "lr_rate": 0.001,
+    "lr_cycles": 3,
+    "lr_decay": 0.9,
+    "label_smoothing": 0,
+    "class_weights": "balanced",
+    "test_metric": "f1",
+    "test_metric_threshold": 0.02,
+    "tflm_var_name": "sk_stage_flatbuffer",
+    "tflm_file": "sk_stage_flatbuffer.h",
+    "backend": "pc",
+    "display_report": true,
+    "quantization": {
+        "enabled": false,
+        "qat": false,
+        "format": "INT8",
+        "io_type": "int8",
+        "conversion": "CONCRETE",
+        "debug": false
+    },
+    "model_file": "model.keras",
+    "use_logits": false,
+    "architecture": {
+        "name": "tcn",
+        "params": {
+            "input_kernel": [1, 7],
+            "input_norm": "batch",
+            "blocks": [
+                {
+                    "depth": 2,
+                    "branch": 1,
+                    "filters": 16,
+                    "kernel": [1, 7],
+                    "dilation": [1, 1],
+                    "dropout": 0.1,
+                    "ex_ratio": 1,
+                    "se_ratio": 4,
+                    "norm": "batch"
+                },
+                {
+                    "depth": 2,
+                    "branch": 1,
+                    "filters": 24,
+                    "kernel": [1, 7],
+                    "dilation": [1, 2],
+                    "dropout": 0.1,
+                    "ex_ratio": 1,
+                    "se_ratio": 4,
+                    "norm": "batch"
+                },
+                {
+                    "depth": 2,
+                    "branch": 1,
+                    "filters": 32,
+                    "kernel": [1, 7],
+                    "dilation": [1, 4],
+                    "dropout": 0.1,
+                    "ex_ratio": 1,
+                    "se_ratio": 4,
+                    "norm": "batch"
+                }
+            ],
+            "output_kernel": [1, 7],
+            "include_top": true,
+            "use_logits": true,
+            "model_name": "tcn"
+        }
+    },
+    "seed": 42
+}
