@@ -24,7 +24,7 @@ matplotlib==3.10.8
 seaborn==0.13.2
 
 # Networking / NSRR downloads
-requests==2.32.5
+requests==2.33.0
 
 # Misc
 joblib==1.5.3
